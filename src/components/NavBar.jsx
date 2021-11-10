@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 const NavBar = ({ isLoggedIn, setIsloggedIn }) => {
   return (
@@ -13,7 +14,7 @@ const NavBar = ({ isLoggedIn, setIsloggedIn }) => {
       {isLoggedIn ? (
         <div>
           <Link className="nav-bar-link" to="/profile">
-            ACCOUNT
+            Account
           </Link>
           <Link
             className="nav-bar-link"
@@ -29,10 +30,10 @@ const NavBar = ({ isLoggedIn, setIsloggedIn }) => {
       ) : (
         <div>
           <Link className="nav-bar-link" to="/login">
-            LOGIN
+            Login
           </Link>
           <Link className="nav-bar-link" to="/register">
-            REGISTER
+            Register
           </Link>
         </div>
       )}
@@ -40,4 +41,4 @@ const NavBar = ({ isLoggedIn, setIsloggedIn }) => {
   );
 };
 
-export default Navbar;
+export default NavBar;
