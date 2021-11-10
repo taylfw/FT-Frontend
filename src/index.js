@@ -18,6 +18,8 @@ import {
   MyRoutines,
   User,
   NavBar,
+  Register,
+  Login,
 } from "./components";
 
 const App = () => {
@@ -41,14 +43,34 @@ const App = () => {
   });
 
   return (
-    <Router>
-      <div id="App">
+    <div id="App">
+      <Router>
         <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        <Home />
-        <Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} />
-        <User isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-      </div>
-    </Router>
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/routines">
+            <Routines
+              allRoutines={allRoutines}
+              setAllRoutines={setAllRoutines}
+            />
+          </Route>
+
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+
+          <Route path="/user">
+            <User isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 };
 
