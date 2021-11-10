@@ -1,0 +1,25 @@
+.nav {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0);
+  flex-direction: row;
+  justify-content: center;
+  margin: 2px;
+}
+
+.nav-bar-link {
+  font-family: "Times New Roman", Times, serif;
+  color: rgb(252, 59, 0);
+  padding: 8px;
+  border-radius: 25%;
+  text-decoration-line: none;
+  background-color: rgb(43, 36, 36);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.493);
+  margin: 5px;
+  transform: translateY(4px);
+}
+
+.nav-bar-link:hover {
+  background-color: rgb(255, 60, 0);
+  color: rgb(43, 36, 36);
+  border: 3px solid rgb(255, 56, 0);
+}

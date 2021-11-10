@@ -17,6 +17,7 @@ import {
   Routines,
   MyRoutines,
   User,
+  NavBar,
 } from "./components";
 
 const App = () => {
@@ -24,25 +25,25 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const getActivities = async () =>{
+  const getActivities = async () => {
     try {
       const { data } = await axios.get(
         "https://fitnesstrac-kr.herokuapp.com/api/activities"
       );
-      console.log(data)
+      console.log(data);
     } catch (error) {
-      console.error(error.message)
+      console.error(error.message);
     }
-}
+  };
 
-useEffect(()=>{
-  getActivities()
-})
+  useEffect(() => {
+    getActivities();
+  });
 
   return (
     <Router>
       <div id="App">
-        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Home />
         <Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} />
         <User isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
