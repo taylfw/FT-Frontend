@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-const Activities = () => {
+const Activities = ({ allActivities }) => {
   return (
-    <header>
-      <h1>Welcome to the Activities Component</h1>
-    </header>
+    <div className="activities-main-container">
+      {allActivities.length
+        ? allActivities.map((activity) => {
+            return activity;
+          })
+        : null}
+    </div>
   );
 };
 
