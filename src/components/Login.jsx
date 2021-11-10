@@ -1,11 +1,61 @@
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { loginUser } from "../api";
+import { getToken, storeToken, storeUser } from "../auth";
 
-const Login = () => {
+const Login = ({ isLoggedIn, setIsLoggedIn }) => {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
-    <header>
-      <h1>Welcome to the Login Component</h1>
-    </header>
+    <div className="auth-component-main-container">
+      <form
+        id="login"
+        onSubmit={async (event) => {
+          event.preventDefault();
+
+          try {
+            const {
+              data: { token },
+            } = await loginUser(userName, password);
+            storeToken(token);
+            setIsLoggedIn(true)
+            storeUser(userName);
+            setUserName("");
+            setPassword("");
+          } catch (error) {
+            console.log(error);
+          }
+        }}
+      >
+        <fieldset className="auth-component-input">
+          <label htmlFor="userName">User Name</label>
+          <input
+            id="userName"
+            type="text"
+            placeholder="enter username"
+            value={userName}
+            onChange={(event) => {
+              setUserName(event.target.value);
+            }}
+          ></input>
+        </fieldset>
+        <fieldset className="auth-component-input">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="enter password"
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+          ></input>
+        </fieldset>
+        <button>
+          Login
+        </button>
+      </form>
+    </div>
   );
 };
 

@@ -23,16 +23,23 @@ import {
 } from "./components";
 
 const App = () => {
+  const [allActivities, setAllActivities] = useState([]);
   const [allRoutines, setAllRoutines] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
   const getActivities = async () => {
     try {
-      const { data } = await axios.get(
+      const {data} = await axios.get(
         "https://fitnesstrac-kr.herokuapp.com/api/activities"
+        // {
+        //   headers: {
+        //     'Authorization': `BEARER ${myToken}`,
+        //   },
+        // }
       );
-      console.log(data);
+      console.log(data); //returns *array* of objects
+      //setAllActivities(data); // causes error "Objects can't be React Component"??? 
     } catch (error) {
       console.error(error.message);
     }
@@ -49,7 +56,7 @@ const App = () => {
 
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Activities allActivities={allActivities} />
           </Route>
           <Route path="/routines">
             <Routines
