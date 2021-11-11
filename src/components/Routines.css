@@ -4,7 +4,7 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  /* border-radius: 5%; */
+
   background: rgb(147, 80, 192);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.493);
 }
@@ -16,6 +16,23 @@
   flex-direction: column;
   justify-content: center;
   color: rgb(255, 255, 255);
-  background: rgb(209, 143, 0);
+  background: linear-gradient(45deg, rgb(231, 170, 37), rgb(211, 146, 5));
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.493);
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.goal {
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+}
+
+.author {
+  display: flex;
+  justify-content: center;
 }
