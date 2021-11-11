@@ -8,18 +8,19 @@
 
 .nav-bar-link {
   font-family: "Times New Roman", Times, serif;
-  color: rgb(252, 59, 0);
+
   padding: 8px;
   border-radius: 15%;
   text-decoration-line: none;
-  background-color: rgb(43, 36, 36);
+  color: rgb(255, 255, 255);
+  background: rgb(209, 143, 0);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.493);
   margin: 5px;
   transform: translateY(4px);
 }
 
 .nav-bar-link:hover {
-  background-color: rgb(255, 60, 0);
+  background-color: rgb(255, 102, 0);
   color: rgb(43, 36, 36);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.493);
 }
