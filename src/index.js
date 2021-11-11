@@ -30,7 +30,7 @@ const App = () => {
 
   const getActivities = async () => {
     try {
-      const {data} = await axios.get(
+      const { data } = await axios.get(
         "https://fitnesstrac-kr.herokuapp.com/api/activities"
         // {
         //   headers: {
@@ -38,8 +38,8 @@ const App = () => {
         //   },
         // }
       );
-      console.log(data); //returns *array* of objects
-      //setAllActivities(data); // causes error "Objects can't be React Component"??? 
+      //returns *array* of objects
+      //setAllActivities(data); // causes error "Objects can't be React Component"???
     } catch (error) {
       console.error(error.message);
     }
@@ -47,6 +47,27 @@ const App = () => {
 
   useEffect(() => {
     getActivities();
+  });
+
+  const getRoutines = async () => {
+    try {
+      const { data } = await axios.get(
+        "https://fitnesstrac-kr.herokuapp.com/api/routines"
+        // {
+        //   headers: {
+        //     'Authorization': `BEARER ${myToken}`,
+        //   },
+        // }
+      );
+      console.log(data); //returns *array* of objects
+      //setAllRoutines(data); // causes error "Objects can't be React Component"???
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getRoutines();
   });
 
   return (
