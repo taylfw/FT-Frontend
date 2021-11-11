@@ -14,11 +14,9 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
           event.preventDefault();
 
           try {
-            const {
-              data: { token },
-            } = await loginUser(userName, password);
+            const { token } = await loginUser(userName, password);
             storeToken(token);
-            setIsLoggedIn(true)
+            setIsLoggedIn(true);
             storeUser(userName);
             setUserName("");
             setPassword("");
@@ -51,9 +49,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
             }}
           ></input>
         </fieldset>
-        <button>
-          Login
-        </button>
+        <button>Login</button>
       </form>
     </div>
   );

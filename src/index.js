@@ -31,19 +31,19 @@ const App = () => {
   const getActivities = async () => {
     try {
 
-      const myToken = getToken();
+      // const myToken = getToken();
 
-      if (myToken) {
-        setIsLoggedIn(true);
-      }
+      // if (myToken) {
+      //   setIsLoggedIn(true);
+      // }
 
       const { data } = await axios.get(
         "https://fitnesstrac-kr.herokuapp.com/api/activities",
-        {
-          headers: {
-            Authorization: `BEARER ${myToken}`,
-          },
-        }
+        // {
+        //   headers: {
+        //     Authorization: `BEARER ${myToken}`,
+        //   },
+        // }
       );
 
       setAllActivities(data);
@@ -81,6 +81,7 @@ const App = () => {
   return (
     <div id="App">
       <Router>
+        <Header />
         <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
         <Switch>
