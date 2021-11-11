@@ -30,16 +30,22 @@ const App = () => {
 
   const getActivities = async () => {
     try {
-      const {data} = await axios.get(
-        "https://fitnesstrac-kr.herokuapp.com/api/activities"
-        // {
-        //   headers: {
-        //     'Authorization': `BEARER ${myToken}`,
-        //   },
-        // }
+      const myToken = getToken();
+
+      if (myToken) {
+        setIsLoggedIn(true);
+      }
+
+      const { data } = await axios.get(
+        "https://fitnesstrac-kr.herokuapp.com/api/activities",
+        {
+          headers: {
+            Authorization: `BEARER ${myToken}`,
+          },
+        }
       );
-      console.log(data); //returns *array* of objects
-      //setAllActivities(data); // causes error "Objects can't be React Component"??? 
+
+      setAllActivities(data);
     } catch (error) {
       console.error(error.message);
     }
@@ -47,7 +53,7 @@ const App = () => {
 
   useEffect(() => {
     getActivities();
-  });
+  }, []);
 
   return (
     <div id="App">
@@ -60,16 +66,18 @@ const App = () => {
           </Route>
           <Route path="/routines">
             <Routines
+              allActivities={allActivities}
               allRoutines={allRoutines}
               setAllRoutines={setAllRoutines}
+              isLoggedIn={isLoggedIn}
             />
           </Route>
 
           <Route path="/login">
-            <Login />
+            <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
           </Route>
           <Route path="/register">
-            <Register />
+            <Register isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
           </Route>
 
           <Route path="/user">
