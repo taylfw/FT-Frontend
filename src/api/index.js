@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getToken } from "../auth";
 
-const BASE = "https://fitnesstrac-kr.herokuapp.com/api";
+const BASE = "http://fitnesstrac-kr.herokuapp.com/api";
 
 export async function getUsers() {
   const myToken = getToken();
@@ -22,9 +22,10 @@ export async function getUsers() {
 export async function registerUser(username, password) {
   try {
     const { data } = await axios.post(`${BASE}/users/register`, {
-      body: {username: username,
-      password: password,}
+      username: username,
+      password: password,
     });
+    
     return data;
   } catch (error) {
     throw error;
@@ -34,8 +35,8 @@ export async function registerUser(username, password) {
 export async function loginUser(username, password) {
   try {
     const { data } = await axios.post(`${BASE}/users/login`, {
-        body: {username: username,
-        password: password,}
+        username: username,
+        password: password,
     });
     return data;
   } catch (error) {
@@ -43,10 +44,10 @@ export async function loginUser(username, password) {
   }
 }
 
-export async function createPost(title, description, price, token) {
+export async function createActivity(title, description, price, token) {
   try {
     const { data } = await axios.post(
-      `${BASE}/posts`,
+      `${BASE}/activities`,
       {
         post: {
           title: title,
@@ -68,11 +69,11 @@ export async function createPost(title, description, price, token) {
     throw error;
   }
 }
-export async function createMessage(id, content) {
+export async function createRoutine(id, content) {
   const token = getToken();
   try {
     const { data } = await axios.post(
-      `${BASE}/posts/${id}/messages`,
+      `${BASE}/routines/`,
       {
         message: {
           content,
@@ -93,10 +94,10 @@ export async function createMessage(id, content) {
   }
 }
 
-export async function deletePost(id) {
+export async function deleteRoutine(id) {
   const myToken = getToken();
   try {
-    const { data } = await axios.delete(`${BASE}/posts/${id}`, {
+    const { data } = await axios.delete(`${BASE}/routines/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

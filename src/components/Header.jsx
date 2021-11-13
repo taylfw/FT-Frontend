@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { getUser } from "../auth";
+import "./Header.css"
 
 const Header = () => {
+  const myUser = getUser()
   return (
-    <header>
-      <h1>Welcome, Fitness Nerds</h1>
+    <header className="header">
+      {myUser ? <h1 className="title">Stronger Together, {myUser}!</h1>
+      : <h1 className="title">Welcome To FitnessTrac-kr!</h1>}
     </header>
   );
 };

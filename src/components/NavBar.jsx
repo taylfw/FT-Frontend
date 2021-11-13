@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
-const NavBar = ({ isLoggedIn, setIsloggedIn }) => {
+const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <div className="nav">
       <div>
@@ -21,7 +21,7 @@ const NavBar = ({ isLoggedIn, setIsloggedIn }) => {
             to="/"
             onClick={() => {
               localStorage.clear();
-              setIsloggedIn(false);
+              setIsLoggedIn(false);
             }}
           >
             Logout

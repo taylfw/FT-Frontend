@@ -13,12 +13,9 @@ const Register = (props) => {
         onSubmit={async (event) => {
           event.preventDefault();
           try {
-            const {
-              data: { token },
-            } = await registerUser(userName, password);
+            const { token } = await registerUser(userName, password);
             storeToken(token);
             storeUser(userName);
-            console.log(token, "DAT TOKEN")
             setUserName("");
             setPassword("");
           } catch (error) {
