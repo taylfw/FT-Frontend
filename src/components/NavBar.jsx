@@ -26,6 +26,9 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
           >
             Logout
           </Link>
+          <Link className="nav-bar-link" to="/">
+            Activities
+          </Link>
         </div>
       ) : (
         <div>

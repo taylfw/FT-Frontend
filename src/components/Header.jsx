@@ -6,7 +6,7 @@ import "./Header.css";
 const Header = () => {
   const myUser = getUser();
   return (
-    <header className="header">
+    <header>
       {myUser ? (
         <h1 className="header-title">Stronger Together, {myUser}!</h1>
       ) : (
