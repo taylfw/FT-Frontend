@@ -25,7 +25,7 @@ export async function registerUser(username, password) {
       username: username,
       password: password,
     });
-    
+
     return data;
   } catch (error) {
     throw error;
@@ -35,8 +35,8 @@ export async function registerUser(username, password) {
 export async function loginUser(username, password) {
   try {
     const { data } = await axios.post(`${BASE}/users/login`, {
-        username: username,
-        password: password,
+      username: username,
+      password: password,
     });
     return data;
   } catch (error) {
@@ -44,16 +44,13 @@ export async function loginUser(username, password) {
   }
 }
 
-export async function createActivity(title, description, price, token) {
+export async function createActivity(name, description, token) {
   try {
     const { data } = await axios.post(
       `${BASE}/activities`,
       {
-        post: {
-          title: title,
-          description: description,
-          price: price,
-        },
+        name: name,
+        description: description,
       },
       {
         headers: {
