@@ -80,6 +80,7 @@ const App = () => {
 
         <Switch>
           <Route exact path="/">
+          <NewActivity />
             <Activities allActivities={allActivities} />
           </Route>
           <Route path="/routines">
@@ -102,8 +103,6 @@ const App = () => {
           </Route>
 
           <Route path="/user">
-            <NewActivity />
-
             <User
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
