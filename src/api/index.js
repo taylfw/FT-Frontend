@@ -75,8 +75,10 @@ export async function createRoutine(id, content) {
     const { data } = await axios.post(
       `${BASE}/routines/`,
       {
-        message: {
-          content,
+        routine: {
+          name: name,
+          goal: goal,
+          isPublic: isPublic,
         },
       },
       {

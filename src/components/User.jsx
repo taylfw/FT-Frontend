@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import {NewActivity, NewRoutine} from "./"
-import { getUser } from "../auth";
+
 import SingleRoutine from "./SingleRoutine";
 
 const User = ({allRoutines, isAuthor, setIsAuthor }) => {
