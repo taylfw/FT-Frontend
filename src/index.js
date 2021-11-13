@@ -20,6 +20,8 @@ import {
   NavBar,
   Register,
   Login,
+  NewActivity,
+  NewRoutine,
 } from "./components";
 
 const App = () => {
@@ -101,6 +103,8 @@ const App = () => {
           </Route>
 
           <Route path="/user">
+            <NewActivity />
+            <NewRoutine />
             <User
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
