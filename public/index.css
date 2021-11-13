@@ -1,4 +1,11 @@
 body {
   display: flex;
-  background: rgb(70, 70, 70);
+  background-image: linear-gradient(
+      rgba(70, 70, 70, 0.801),
+      rgba(70, 70, 70, 0.801)
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKhdO075sCybBFJdNryDL3NbC5eBbp2MxJexGmRRj1nD1mkmfRTEQdf6Dy99ZFLz6dEkI&usqp=CAU");
+  align-content: center;
+  justify-content: center;
+  width: 33%;
 }
