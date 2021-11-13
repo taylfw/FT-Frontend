@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import {NewActivity, NewRoutine} from "./"
+import { getUser } from "../auth";
+import SingleRoutine from "./SingleRoutine";
 
-const User = () => {
+const User = ({allRoutines, isAuthor, setIsAuthor }) => {
   return (
-    <header>
-      <h1>Welcome to the User Component</h1>
-    </header>
+<div className="posts-main-container">
+{allRoutines.length
+  ? allRoutines.map((routine) => {
+      return isAuthor ? (
+      
+          <SingleRoutine routine={routine} thisUser={thisUser}/>
+        
+      ) : null;
+    })
+  : null}
+</div>
   );
 };
 

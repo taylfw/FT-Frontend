@@ -27,6 +27,7 @@ const App = () => {
   const [allRoutines, setAllRoutines] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isAuthor, setIsAuthor] = useState(false);
 
   const getActivities = async () => {
     try {
@@ -87,6 +88,8 @@ const App = () => {
               allRoutines={allRoutines}
               setAllRoutines={setAllRoutines}
               isLoggedIn={isLoggedIn}
+              isAuthor={isAuthor}
+              setIsAuthor={setIsAuthor}
             />
           </Route>
 
@@ -98,7 +101,12 @@ const App = () => {
           </Route>
 
           <Route path="/user">
-            <User isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            <User
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              allRoutines={allRoutines}
+              isAuthor={isAuthor}
+            />
           </Route>
         </Switch>
       </Router>
