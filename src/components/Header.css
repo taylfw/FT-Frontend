@@ -1,3 +1,9 @@
-.title{
-    text-align: center;
+.header-title {
+  text-align: center;
+  border: 8px solid rgb(147, 80, 192);
+  color: rgb(255, 255, 255);
+  background: linear-gradient(45deg, rgb(231, 170, 37), rgb(211, 146, 5));
+  border-radius: 5%;
+  padding: 8px;
+  width: 100%;
 }
