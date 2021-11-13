@@ -25,7 +25,7 @@ export async function registerUser(username, password) {
       username: username,
       password: password,
     });
-    
+
     return data;
   } catch (error) {
     throw error;
@@ -35,8 +35,8 @@ export async function registerUser(username, password) {
 export async function loginUser(username, password) {
   try {
     const { data } = await axios.post(`${BASE}/users/login`, {
-        username: username,
-        password: password,
+      username: username,
+      password: password,
     });
     return data;
   } catch (error) {
@@ -69,17 +69,15 @@ export async function createActivity(title, description, price, token) {
     throw error;
   }
 }
-export async function createRoutine(id, content) {
+export async function createRoutine(name, goal, isPublic) {
   const token = getToken();
   try {
     const { data } = await axios.post(
       `${BASE}/routines/`,
       {
-        routine: {
-          name: name,
-          goal: goal,
-          isPublic: isPublic,
-        },
+        name: name,
+        goal: goal,
+        isPublic: isPublic,
       },
       {
         headers: {
@@ -91,9 +89,10 @@ export async function createRoutine(id, content) {
     return data;
   } catch (error) {
     console.error(error);
-  } finally {
-    location.reload();
   }
+  // finally {
+  //   location.reload();
+  // }
 }
 
 export async function deleteRoutine(id) {
