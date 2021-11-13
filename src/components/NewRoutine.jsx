@@ -10,7 +10,7 @@ const NewRoutine = (props) => {
   return (
     <div className="new-post-component-main-container">
       <form
-        id="newPostSubmit"
+        id="newRoutineSubmit"
         onSubmit={async (event) => {
           event.preventDefault();
 
@@ -24,14 +24,14 @@ const NewRoutine = (props) => {
             );
             
             console.log(createdRoutine)
-            setAllRoutines([createdRoutine.routine.post, ...allRoutines]);
+            setAllRoutines([createdRoutine, ...allRoutines]);
             
           } catch (error) {
             console.error(error);
           }
         }}
       >
-        <h3>Create Post Here</h3>
+        <h3>Create Your Routine Here</h3>
         <fieldset className="auth-component-input">
           <label htmlFor="name">Title</label>
           <input
@@ -68,7 +68,6 @@ const NewRoutine = (props) => {
             onChange={(event) => {
               setIsPublic(event.target.value);
             }}
-            required
           ></input>
         </fieldset>
         <button type="submit">Submit</button>

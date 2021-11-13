@@ -12,15 +12,13 @@ import {
 
 import {
   Header,
-  Home,
   Activities,
   Routines,
-  MyRoutines,
   User,
   NavBar,
   Register,
   Login,
-  NewActivity,
+  // NewActivity,
   NewRoutine,
 } from "./components";
 
@@ -85,6 +83,7 @@ const App = () => {
             <Activities allActivities={allActivities} />
           </Route>
           <Route path="/routines">
+            <NewRoutine allRoutines={allRoutines} setAllRoutines={setAllRoutines}/>
             <Routines
               allActivities={allActivities}
               allRoutines={allRoutines}
