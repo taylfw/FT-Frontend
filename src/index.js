@@ -104,7 +104,7 @@ const App = () => {
 
           <Route path="/user">
             <NewActivity />
-            <NewRoutine />
+
             <User
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
