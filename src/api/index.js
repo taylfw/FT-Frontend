@@ -44,16 +44,13 @@ export async function loginUser(username, password) {
   }
 }
 
-export async function createActivity(title, description, price, token) {
+export async function createActivity(name, description, token) {
   try {
     const { data } = await axios.post(
       `${BASE}/activities`,
       {
-        post: {
-          title: title,
-          description: description,
-          price: price,
-        },
+        name: name,
+        description: description,
       },
       {
         headers: {
