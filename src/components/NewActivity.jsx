@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { createActivity } from "../api";
+import "./Inputfields.css";
 
 const NewActivity = ({ allActivities, setAllActivities }) => {
   const [description, setDescription] = useState("");
@@ -29,7 +30,7 @@ const NewActivity = ({ allActivities, setAllActivities }) => {
       >
         <h2 className="hello">Create Activity Below.</h2>
         <fieldset className="auth-component-input">
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="title">Title: </label>
           <input
             id="name"
             type="text"
@@ -40,7 +41,7 @@ const NewActivity = ({ allActivities, setAllActivities }) => {
           />
         </fieldset>
         <fieldset className="auth-component-input">
-          <label htmlFor="description">Description:</label>
+          <label htmlFor="description">Description: </label>
           <input
             id="description"
             type="text"
@@ -55,13 +56,6 @@ const NewActivity = ({ allActivities, setAllActivities }) => {
           Submit
         </button>
       </form>
-
-      <button className="btn">
-        <a href="#">Back to top</a>
-      </button>
-      <button>
-        <a href="#">Back to top</a>
-      </button>
     </div>
   );
 };

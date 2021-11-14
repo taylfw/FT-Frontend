@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { createRoutine } from "../api";
 import { getToken } from "../auth";
+import "./Inputfields.css";
 
 const NewRoutine = (props) => {
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
-  const [isPublic, setIsPublic] = useState(false)
-  const {allRoutines, setAllRoutines} = props
+  const [isPublic, setIsPublic] = useState(false);
+  const { allRoutines, setAllRoutines } = props;
   return (
     <div className="new-post-component-main-container">
       <form
@@ -22,32 +23,30 @@ const NewRoutine = (props) => {
               isPublic,
               token
             );
-            
-            console.log(createdRoutine)
+
+            console.log(createdRoutine);
             setAllRoutines([createdRoutine, ...allRoutines]);
-            
           } catch (error) {
             console.error(error);
           }
         }}
       >
-        <h3>Create Your Routine Here</h3>
+        <h3 className="hello">Create Your Routine Here</h3>
         <fieldset className="auth-component-input">
-          <label htmlFor="name">Title</label>
+          <label htmlFor="name">Title: </label>
           <input
             id="name"
             type="text"
             placeholder="enter title"
             value={name}
             onChange={(event) => {
-
               setName(event.target.value);
             }}
             required
           ></input>
         </fieldset>
         <fieldset className="auth-component-input">
-          <label htmlFor="goal">Goal</label>
+          <label htmlFor="goal">Goal: </label>
           <input
             id="goal"
             type="text"
