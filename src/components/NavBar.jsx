@@ -26,7 +26,7 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
           >
             Logout
           </Link>
-          <Link className="nav-bar-link" to="/">
+          <Link className="nav-bar-link" to="/activities">
             Activities
           </Link>
         </div>

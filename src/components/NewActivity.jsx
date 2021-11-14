@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { createActivity } from "../api";
+import { getToken } from "../auth";
 import "./Inputfields.css";
 
 const NewActivity = ({ allActivities, setAllActivities }) => {
@@ -16,7 +17,7 @@ const NewActivity = ({ allActivities, setAllActivities }) => {
 
           try {
             const token = getToken();
-            const user = getUser();
+            // const user = getUser();
             const createdActivity = await createActivity(
               name,
               description,

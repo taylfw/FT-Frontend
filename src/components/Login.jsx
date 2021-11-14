@@ -18,6 +18,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
             const { token } = await loginUser(userName, password);
             storeToken(token);
             setIsLoggedIn(true);
+            console.log(isLoggedIn);
             storeUser(userName);
             setUserName("");
             setPassword("");

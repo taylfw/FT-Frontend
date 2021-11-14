@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
-import {getUsers } from "../api";
+import { getUsers } from "../api";
 import { getUser } from "../auth";
-import "./Routines.css"
+import "./Routines.css";
 
-const SingleRoutine = ({routine, thisUser, isAuthor, setIsAuthor}) => {
-    
-try {
-    if(thisUser === routine.creatorName) setIsAuthor(true)
-    
-} catch (error) {
-    console.error(error)
-}
-
+const SingleRoutine = ({ routine, thisUser, isAuthor, setIsAuthor }) => {
+  try {
+    if (thisUser === routine.creatorName) setIsAuthor(true);
+  } catch (error) {
+    console.error(error);
+  }
+  console.log(routine);
   return (
     <div key={routine.id} className="routine">
       <h3 className="title">{routine.name}</h3>

@@ -20,6 +20,7 @@ import {
   Login,
   NewActivity,
   NewRoutine,
+  Home,
 } from "./components";
 
 const App = () => {
@@ -75,11 +76,14 @@ const App = () => {
   return (
     <div id="App">
       <Router>
-        <Header isLoggedin={isLoggedIn}/>
+        <Header isLoggedin={isLoggedIn} />
         <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
         <Switch>
           <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/activities">
             <NewActivity />
             <Activities allActivities={allActivities} />
           </Route>

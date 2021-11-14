@@ -66,11 +66,10 @@ export async function createActivity(name, description, token) {
     throw error;
   }
 }
-export async function createRoutine(name, goal, isPublic) {
-  const token = getToken();
+export async function createRoutine(name, goal, isPublic, token) {
   try {
     const { data } = await axios.post(
-      `${BASE}/routines/`,
+      `${BASE}/routines`,
       {
         name: name,
         goal: goal,
