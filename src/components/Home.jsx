@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+// import ".Inputfields.css";
 
 const Home = () => {
   return (
     <header>
-      <h1>Welcome to the Home Component</h1>
+      <h1 className="hello">Welcome</h1>
     </header>
   );
 };

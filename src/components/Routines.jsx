@@ -5,17 +5,19 @@ import { getUser } from "../auth";
 import SingleRoutine from "./SingleRoutine";
 
 const Routines = ({ allRoutines, isAuthor, setIsAuthor }) => {
-const thisUser = getUser()
-
+  const thisUser = getUser();
+  console.log(allRoutines);
   return (
     <div className="routines-main-container">
       {allRoutines.length
         ? allRoutines.map((routine) => {
             return routine.isPublic ? (
-            
-                <SingleRoutine routine={routine} thisUser={thisUser} isAuthor={isAuthor}
-                setIsAuthor={setIsAuthor}/>
-              
+              <SingleRoutine
+                routine={routine}
+                thisUser={thisUser}
+                isAuthor={isAuthor}
+                setIsAuthor={setIsAuthor}
+              />
             ) : null;
           })
         : null}
