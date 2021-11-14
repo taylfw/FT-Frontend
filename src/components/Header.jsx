@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import { getUser } from "../auth";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({isLoggedIn}) => {
   const myUser = getUser();
   return (
     <header>
-      {myUser ? (
+      {isLoggedIn ? (
         <h1 className="header-title">Stronger Together, {myUser}!</h1>
       ) : (
         <h1 className="title">Welcome To FitnessTrac-kr!</h1>

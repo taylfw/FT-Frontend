@@ -75,7 +75,7 @@ const App = () => {
   return (
     <div id="App">
       <Router>
-        <Header />
+        <Header isLoggedin={isLoggedIn}/>
         <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
         <Switch>
