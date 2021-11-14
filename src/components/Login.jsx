@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { loginUser } from "../api";
 import { getToken, storeToken, storeUser } from "../auth";
+import "./Inputfields.css";
 
 const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   const [userName, setUserName] = useState("");

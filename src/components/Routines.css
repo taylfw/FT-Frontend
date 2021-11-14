@@ -1,7 +1,8 @@
 .routines-main-container {
   display: flex;
   margin: 18px;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-content: center;
   justify-content: center;
 
@@ -19,6 +20,8 @@
   color: rgb(255, 255, 255);
   background: linear-gradient(45deg, rgb(231, 170, 37), rgb(211, 146, 5));
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.493);
+  height: 160px;
+  width: 220px;
 }
 
 .title {

@@ -18,7 +18,7 @@ import {
   NavBar,
   Register,
   Login,
-  // NewActivity,
+  NewActivity,
   NewRoutine,
 } from "./components";
 
@@ -80,11 +80,14 @@ const App = () => {
 
         <Switch>
           <Route exact path="/">
-          <NewActivity />
+            <NewActivity />
             <Activities allActivities={allActivities} />
           </Route>
           <Route path="/routines">
-            <NewRoutine allRoutines={allRoutines} setAllRoutines={setAllRoutines}/>
+            <NewRoutine
+              allRoutines={allRoutines}
+              setAllRoutines={setAllRoutines}
+            />
             <Routines
               allActivities={allActivities}
               allRoutines={allRoutines}
