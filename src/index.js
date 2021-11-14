@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
-import { getToken } from "./auth";
+import { getAllActivities, getAllRoutines, getUsersRoutine } from "./api";
 
 import {
   BrowserRouter as Router,
@@ -22,55 +22,36 @@ import {
   NewRoutine,
   Home,
 } from "./components";
+import { getToken } from "./auth";
 
 const App = () => {
   const [allActivities, setAllActivities] = useState([]);
   const [allRoutines, setAllRoutines] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [isAuthor, setIsAuthor] = useState(false);
 
+  const isUserLoggedIn = async () => {
+    const token = getToken()
+    if(token) setIsLoggedIn(true)
+  }
+
   const getActivities = async () => {
-    try {
-      // const myToken = getToken();
-
-      // if (myToken) {
-      //   setIsLoggedIn(true);
-      // }
-
-      const { data } = await axios.get(
-        "https://fitnesstrac-kr.herokuapp.com/api/activities"
-        // {
-        //   headers: {
-        //     Authorization: `BEARER ${myToken}`,
-        //   },
-        // }
-      );
-
-      setAllActivities(data);
-    } catch (error) {
-      console.error(error.message);
-    }
+    const data = await getAllActivities();
+    setAllActivities(data);
   };
-
-  useEffect(() => {
-    getActivities();
-  }, []);
-
   const getRoutines = async () => {
-    try {
-      const { data } = await axios.get(
-        "https://fitnesstrac-kr.herokuapp.com/api/routines"
-      );
-      setAllRoutines(data);
-      return data;
-    } catch (error) {
-      console.error(error.message);
-    }
+    const data = await getAllRoutines();
+    setAllRoutines(data);
   };
-
+  // const getUserRoutines = async () => {
+  //   const data = await getUsersRoutine();
+  //   // setAllUserRoutines(data);
+  // };
   useEffect(() => {
     getRoutines();
+    getActivities();
+    // getUserRoutines();
+    isUserLoggedIn();
   }, []);
 
   return (

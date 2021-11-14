@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { createRoutine } from "../api";
-import { getToken } from "../auth";
 import "./Inputfields.css";
 
-const NewRoutine = (props) => {
+const NewRoutine = ({ allRoutines, setAllRoutines }) => {
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [isPublic, setIsPublic] = useState(false);
-  const { allRoutines, setAllRoutines } = props;
+  
   return (
     <div className="new-post-component-main-container">
       <form
@@ -16,16 +15,19 @@ const NewRoutine = (props) => {
           event.preventDefault();
 
           try {
-            const token = getToken();
             const createdRoutine = await createRoutine(
               name,
               goal,
               isPublic,
-              token
             );
 
             console.log(createdRoutine);
             setAllRoutines([createdRoutine, ...allRoutines]);
+            setName("");
+            setGoal("");
+            setIsPublic(false);
+            // setError("");
+                
           } catch (error) {
             console.error(error);
           }
@@ -65,7 +67,7 @@ const NewRoutine = (props) => {
             type="checkbox"
             value={isPublic}
             onChange={(event) => {
-              setIsPublic(event.target.value);
+              setIsPublic(event.target.checked);
             }}
           ></input>
         </fieldset>

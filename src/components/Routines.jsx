@@ -4,12 +4,11 @@ import "./Routines.css";
 import { getUser } from "../auth";
 import SingleRoutine from "./SingleRoutine";
 
-const Routines = ({ allRoutines, isAuthor, setIsAuthor }) => {
+const Routines = ({ allRoutines, isAuthor, setIsAuthor, isLoggedIn }) => {
   const thisUser = getUser();
-  console.log(allRoutines);
   return (
     <div className="routines-main-container">
-      {allRoutines.length
+      {allRoutines && allRoutines.length
         ? allRoutines.map((routine) => {
             return routine.isPublic ? (
               <SingleRoutine
@@ -17,6 +16,7 @@ const Routines = ({ allRoutines, isAuthor, setIsAuthor }) => {
                 thisUser={thisUser}
                 isAuthor={isAuthor}
                 setIsAuthor={setIsAuthor}
+                isLoggedIn={isLoggedIn}
               />
             ) : null;
           })

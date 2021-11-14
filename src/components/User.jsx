@@ -7,7 +7,7 @@ import SingleRoutine from "./SingleRoutine";
 const User = ({ allRoutines, isAuthor, setIsAuthor }) => {
   return (
     <div className="posts-main-container">
-      {allRoutines.length
+      {allRoutines && allRoutines.length
         ? allRoutines.map((routine) => {
             return isAuthor ? (
               <SingleRoutine routine={routine} thisUser={thisUser} />

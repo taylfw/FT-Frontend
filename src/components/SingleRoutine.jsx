@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { getUsers } from "../api";
-import { getUser } from "../auth";
 import "./Routines.css";
 
-const SingleRoutine = ({ routine, thisUser, isAuthor, setIsAuthor }) => {
-  try {
-    if (thisUser === routine.creatorName) setIsAuthor(true);
-  } catch (error) {
-    console.error(error);
-  }
-  console.log(routine);
+const SingleRoutine = ({
+  routine,
+  thisUser
+}) => {
+    console.log(routine.id)
   return (
-    <div key={routine.id} className="routine">
+    <div className="routine">
       <h3 className="title">{routine.name}</h3>
       <h4 className="author">{routine.creatorName}</h4>
       <p className="goal">{routine.goal}</p>
-      {isAuthor ? (
+      {thisUser === routine.creatorName ? (
         <button
           className="deleteButton"
           onClick={async (event) => {

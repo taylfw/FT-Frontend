@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getToken } from "../auth";
+import { getToken, getUser } from "../auth";
 
 const BASE = "http://fitnesstrac-kr.herokuapp.com/api";
 
@@ -54,7 +54,6 @@ export async function createActivity(name, description, token) {
       },
       {
         headers: {
-          // Not sure if it is application and token. (Please delete this comment if correct) -Daniel
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
@@ -66,14 +65,16 @@ export async function createActivity(name, description, token) {
     throw error;
   }
 }
-export async function createRoutine(name, goal, isPublic, token) {
+export async function createRoutine(name, goal, isPublic) {
+  const token = getToken();
+
   try {
     const { data } = await axios.post(
       `${BASE}/routines`,
       {
-        name: name,
-        goal: goal,
-        isPublic: isPublic,
+        name,
+        goal,
+        isPublic,
       },
       {
         headers: {
@@ -86,25 +87,54 @@ export async function createRoutine(name, goal, isPublic, token) {
   } catch (error) {
     console.error(error);
   }
-  // finally {
-  //   location.reload();
-  // }
 }
 
+export async function getAllActivities() {
+  try {
+
+    const { data } = await axios.get(
+      "https://fitnesstrac-kr.herokuapp.com/api/activities"
+    );
+
+    return data;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+export async function getAllRoutines(){
+  try {
+    const { data } = await axios.get(
+      "https://fitnesstrac-kr.herokuapp.com/api/routines"
+    );
+    return data;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+export async function getUsersRoutine() {
+  const user = getUser();
+  try {
+    const { data } = await axios.get(`${BASE}/users/${user}/routines`);
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+
 export async function deleteRoutine(id) {
-  const myToken = getToken();
+  const token = getToken();
   try {
     const { data } = await axios.delete(`${BASE}/routines/${id}`, {
-      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${myToken}`,
+        "Authorization": `Bearer ${token}`,
       },
     });
     return data;
   } catch (error) {
     throw error;
-  } finally {
-    location.reload();
   }
 }
